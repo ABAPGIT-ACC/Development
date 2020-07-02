@@ -12,6 +12,8 @@ CLASS zsales_cl_abapgit DEFINITION
         matnr TYPE vbap-matnr,
         charg TYPE vbap-charg,
         werks TYPE vbap-werks,
+        zmeng TYPE vbap-zmeng,        "SCR1 - 02.07.2020 - V1
+        meins TYPE vbap-meins,        "SCR1 - 02.07.2020 - V1
       END OF gty_vbap .
     TYPES:
       gtt_t_vbap TYPE STANDARD TABLE OF gty_vbap .
@@ -67,7 +69,9 @@ CLASS ZSALES_CL_ABAPGIT IMPLEMENTATION.
              posnr,
              matnr,
              charg,
-             werks
+             werks,
+             zmeng,               "SCR1 - 02.07.2020 - V1
+             meins                "SCR1 - 02.07.2020 - V1
         FROM vbap                 ##DB_FEATURE_MODE[TABLE_LEN_MAX1]
         INTO TABLE @gt_vbap
         WHERE vbeln IN @it_vbeln
